@@ -1,9 +1,8 @@
 extends KinematicBody2D
 
-var velocity = Vector2.ZERO
+var treasure = 10
 
-func _ready():
-	var total_coin = 10
+var velocity = Vector2.ZERO
 
 func _physics_process(delta):
 	var input_vector = Vector2.ZERO

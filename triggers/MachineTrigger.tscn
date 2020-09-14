@@ -1,16 +1,16 @@
-[gd_scene load_steps=3 format=2]
-
-[ext_resource path="res://MachineTrigger.gd" type="Script" id=2]
+[gd_scene load_steps=2 format=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 12.7188, 12.7556 )
 
-[node name="MachineTrigger" type="Area2D"]
+[node name="MachineTrigger" type="Area2D" groups=[
+"TradeTriggers",
+]]
 modulate = Color( 1, 1, 1, 0.203922 )
 position = Vector2( 0.065136, -0.065136 )
 z_index = -1
-collision_layer = 4
-script = ExtResource( 2 )
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
@@ -23,7 +23,6 @@ margin_bottom = -13.8125
 text = "Hello"
 align = 1
 valign = 1
-percent_visible = -0.2
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
