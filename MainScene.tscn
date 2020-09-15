@@ -1,9 +1,18 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://CanvasLayer.gd" type="Script" id=1]
 [ext_resource path="res://MainScene.gd" type="Script" id=2]
 [ext_resource path="res://triggers/TriggerRed.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Player/PlayerBlue.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Sprites/map2.png" type="Texture" id=5]
+
+[sub_resource type="SegmentShape2D" id=1]
+a = Vector2( 188.627, -142.703 )
+b = Vector2( -60.0622, 106.269 )
+
+[sub_resource type="SegmentShape2D" id=2]
+a = Vector2( -60.4158, -142.986 )
+b = Vector2( 188.839, 106.905 )
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource( 2 )
@@ -34,9 +43,40 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TriggerRed1" parent="." instance=ExtResource( 3 )]
-position = Vector2( 85.8745, 42.8498 )
+[node name="VotingTimer" type="Timer" parent="."]
 
-[node name="PlayerCollision" parent="." instance=ExtResource( 4 )]
-position = Vector2( 174.146, 52.1862 )
+[node name="ScoreWindowimer" type="Timer" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 163.386, 117.027 )
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D"]
+show_behind_parent = true
+position = Vector2( 64.7003, -37.8302 )
+texture = ExtResource( 5 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( -60.5668, 107.336 )
+polygon = PoolVector2Array( 247.426, -0.784515, 297.277, -125.235, 246.366, -247.918, 124.672, -297.204, 2.48442, -248.06, -48.0737, -126.791, 2.13087, -1.20869, 124.814, 47.5817, 282.074, -15.6338, 148.785, 87.1089, -29.4061, 15.1962, -88.3788, -170.985, -8.82932, -315.942, 124.39, -350.307, 259.235, -298.689, 315.096, -157.196, 275.357, -20.23 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="PlayerCollision" parent="YSort" instance=ExtResource( 4 )]
+position = Vector2( 171.146, 60.921 )
+collision_layer = 2
+collision_mask = 5
+
+[node name="MachineTrigger" parent="YSort" instance=ExtResource( 3 )]
+position = Vector2( 138.435, 169.748 )
+
+[node name="TriggerRed1" parent="." instance=ExtResource( 3 )]
+position = Vector2( 202.322, 97.6964 )
+collision_layer = 4
 [connection signal="pressed" from="CanvasLayer/MapSceneControls/UseTrigger" to="CanvasLayer" method="_on_UseTrigger_pressed"]
+[connection signal="timeout" from="VotingTimer" to="." method="_on_VotingTimer_timeout"]
