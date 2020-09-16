@@ -7,18 +7,12 @@
 radius = 11.7314
 
 [node name="MachineTrigger" instance=ExtResource( 2 )]
-modulate = Color( 1, 1, 1, 1 )
-z_index = 0
 script = ExtResource( 3 )
 
-[node name="Sprite" parent="." index="0"]
-position = Vector2( -0.073166, -0.176758 )
-scale = Vector2( 1.43279, 1.33146 )
-
-[node name="CollisionShape2D" parent="." index="1"]
+[node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource( 1 )
 
-[node name="Label" parent="." index="2"]
+[node name="Label" parent="." index="1"]
 margin_left = -29.1812
 margin_top = -28.4375
 margin_right = 28.8188

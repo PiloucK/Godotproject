@@ -1,21 +1,20 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Sprites/red_pp.png" type="Texture" id=1]
+[ext_resource path="res://triggers/MachineTrigger.gd" type="Script" id=1]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 7.99254
+radius = 11.5
 
 [node name="MachineTrigger" type="Area2D" groups=[
 "TradeTriggers",
 ]]
-modulate = Color( 1, 1, 1, 0.203922 )
 position = Vector2( 0.065136, -0.065136 )
-z_index = -1
 collision_layer = 2
 collision_mask = 2
-
-[node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
