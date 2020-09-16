@@ -1,10 +1,13 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://CanvasLayer.gd" type="Script" id=1]
 [ext_resource path="res://MainScene.gd" type="Script" id=2]
-[ext_resource path="res://triggers/TriggerRed.tscn" type="PackedScene" id=3]
+[ext_resource path="res://triggers/TriggerBlue.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Player/PlayerBlue.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Sprites/map2.png" type="Texture" id=5]
+[ext_resource path="res://triggers/TriggerRed.tscn" type="PackedScene" id=6]
+[ext_resource path="res://triggers/TriggerGreen.tscn" type="PackedScene" id=7]
+[ext_resource path="res://triggers/TriggerPurple.tscn" type="PackedScene" id=8]
 
 [sub_resource type="SegmentShape2D" id=1]
 a = Vector2( 188.627, -142.703 )
@@ -35,10 +38,12 @@ __meta__ = {
 }
 
 [node name="TriggerIcon" type="TextureRect" parent="CanvasLayer/MapSceneControls/UseTrigger"]
-margin_left = 221.528
-margin_top = 94.4959
-margin_right = 349.528
-margin_bottom = 222.496
+margin_left = 768.0
+margin_top = 432.0
+margin_right = 868.0
+margin_bottom = 532.0
+rect_scale = Vector2( -1, -1 )
+rect_pivot_offset = Vector2( -15, -15 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -48,7 +53,10 @@ __meta__ = {
 [node name="ScoreWindowimer" type="Timer" parent="."]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2( 163.386, 117.027 )
+position = Vector2( 318.467, 250.469 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Sprite" type="Sprite" parent="StaticBody2D"]
 show_behind_parent = true
@@ -68,15 +76,20 @@ shape = SubResource( 2 )
 [node name="YSort" type="YSort" parent="."]
 
 [node name="PlayerCollision" parent="YSort" instance=ExtResource( 4 )]
-position = Vector2( 171.146, 60.921 )
+position = Vector2( 528.194, 225.276 )
 collision_layer = 2
 collision_mask = 5
 
-[node name="MachineTrigger" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 138.435, 169.748 )
+[node name="TriggerRed" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 498.227, 235.669 )
 
-[node name="TriggerRed1" parent="." instance=ExtResource( 3 )]
-position = Vector2( 202.322, 97.6964 )
-collision_layer = 4
+[node name="TriggerPurple" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 423.52, 231.547 )
+
+[node name="TriggerGreen" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 478.648, 167.66 )
+
+[node name="TriggerBlue" parent="YSort" instance=ExtResource( 3 )]
+position = Vector2( 479.679, 295.95 )
 [connection signal="pressed" from="CanvasLayer/MapSceneControls/UseTrigger" to="CanvasLayer" method="_on_UseTrigger_pressed"]
 [connection signal="timeout" from="VotingTimer" to="." method="_on_VotingTimer_timeout"]

@@ -19,10 +19,14 @@ config/name="DaGangCasino"
 run/main_scene="res://MainScene.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+NeededValues="*res://NeededValues.tscn"
+
 [display]
 
-window/size/width=640
-window/size/height=360
+window/size/width=768
+window/size/height=432
 window/size/test_width=640
 window/size/test_height=360
 window/stretch/mode="2d"

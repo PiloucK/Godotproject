@@ -1,25 +1,27 @@
 extends CanvasLayer
 
-var use_trigger = "none"
-var player
+var to_trade
+
 
 func _ready():
 	for i in get_tree().get_nodes_in_group("TradeTriggers"):
 		i.connect("in_use_range", self, "_on_TradeTrigger_in_use_range")
 		i.connect("out_use_range", self, "_on_TradeTrigger_out_use_range")
 
-func _on_TradeTrigger_in_use_range(player_name):
-	player = player_name
+func _on_TradeTrigger_in_use_range(machine_name):
+	to_trade = machine_name
+#	NeededValues.treasure += 1
+#	print(NeededValues.treasure)
 	var trade_icon = load("res://icon.png")
 	get_node("MapSceneControls/UseTrigger/TriggerIcon").set_texture(trade_icon)
-	use_trigger = "cooperate"
 
 func _on_TradeTrigger_out_use_range():
 	get_node("MapSceneControls/UseTrigger/TriggerIcon").texture = null
-	use_trigger = "none"
 
 func _input(event):
 	if event.is_action_pressed("cooperate"):
-		if use_trigger == "cooperate":
-			print("cooperate")
-			print(player)
+		print("cooperate")
+		print(to_trade)
+		if to_trade.ends_with("Blue"):
+			NeededValues.red_to_blue *= -1
+			print(NeededValues.red_to_blue)

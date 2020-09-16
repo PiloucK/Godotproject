@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Sprites/red_pp.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/green_pp.png" type="Texture" id=1]
 [ext_resource path="res://triggers/MachineTrigger.tscn" type="PackedScene" id=2]
 
 [node name="MachineTrigger" instance=ExtResource( 2 )]
 
-[node name="red_pp" type="Sprite" parent="." index="2"]
+[node name="green_pp" type="Sprite" parent="." index="2"]
 texture = ExtResource( 1 )
