@@ -1,6 +1,5 @@
 extends Node
 
-
 var per_turn_income = 2
 
 var red_treasure = 10
