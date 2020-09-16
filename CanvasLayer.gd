@@ -20,8 +20,12 @@ func _on_TradeTrigger_out_use_range():
 
 func _input(event):
 	if event.is_action_pressed("cooperate"):
-		print("cooperate")
-		print(to_trade)
 		if to_trade.ends_with("Blue"):
 			NeededValues.red_to_blue *= -1
 			print(NeededValues.red_to_blue)
+		if to_trade.ends_with("Green"):
+			NeededValues.red_to_green *= -1
+			print(NeededValues.red_to_green)
+		if to_trade.ends_with("Purple"):
+			NeededValues.red_to_purple *= -1
+			print(NeededValues.red_to_purple)
