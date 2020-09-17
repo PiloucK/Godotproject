@@ -9,8 +9,14 @@ func _ready():
 	voting_timer.start()
 
 func _on_VotingTimer_timeout():
+<<<<<<< Updated upstream
 	var i = 0
 	var j = 0
+=======
+#	action_matrix[0][0] = 2
+	purple_to_green = 5
+	print(action_matrix[0][0])
+>>>>>>> Stashed changes
 	print("timeout for voting settings")
 	compute_round_results()
 	compute_total_score()

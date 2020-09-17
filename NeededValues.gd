@@ -23,3 +23,5 @@ var green_to_purple = -1
 var purple_to_blue = -1
 var purple_to_red = -1
 var purple_to_green = -1
+
+var action_matrix = [4][4] # = [[0,0,0], [0,0,0], [0,0, 0], [0,0,0]]
