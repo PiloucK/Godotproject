@@ -29,23 +29,27 @@ var x_lock = 0
 var y_lock = 0
 var last_x = 0
 var last_y = 0
+var move_lock = 0
 func move_state(delta):
 	var input_vector = Vector2.ZERO
 	
-	if x_lock == 0:
-		input_vector.x = randi() % 2 - randi() % 2
-		x_lock = randi() % 20 + 1
-		last_x = input_vector.x
-	else:
-		input_vector.x = last_x
-	if y_lock == 0:
-		input_vector.y = randi() % 2 - randi() % 2
-		y_lock = randi() % 20 + 1
-		last_y = input_vector.y
-	else:
-		input_vector.y = last_y
-	x_lock -= 1
-	y_lock -= 1
+	if move_lock == 0:
+		move_lock = randi() % 5 + 1
+		if x_lock == 0:
+			input_vector.x = randi() % 2 - randi() % 2
+			x_lock = randi() % 20 + 1
+			last_x = input_vector.x
+		else:
+			input_vector.x = last_x
+		if y_lock == 0:
+			input_vector.y = randi() % 2 - randi() % 2
+			y_lock = randi() % 20 + 1
+			last_y = input_vector.y
+		else:
+			input_vector.y = last_y
+		x_lock -= 1
+		y_lock -= 1
+	move_lock -= 1
 	
 	if input_vector != Vector2.ZERO:
 		animation_tree.set("parameters/Idle/blend_position", input_vector)
