@@ -4,7 +4,7 @@
 [ext_resource path="res://MainScene.gd" type="Script" id=2]
 [ext_resource path="res://triggers/TriggerBlue.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Player/PlayerRed.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Sprites/map_full.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/map_full-1.png" type="Texture" id=5]
 [ext_resource path="res://icon.png" type="Texture" id=6]
 [ext_resource path="res://triggers/TriggerGreen.tscn" type="PackedScene" id=7]
 [ext_resource path="res://triggers/TriggerPurple.tscn" type="PackedScene" id=8]
@@ -22,17 +22,16 @@
 [ext_resource path="res://VesrusSprites.gd" type="Script" id=20]
 [ext_resource path="res://VesrusWindowSpriteBlue.gd" type="Script" id=21]
 [ext_resource path="res://VesrusWindowSpritePurple.gd" type="Script" id=22]
+[ext_resource path="res://pixeboy-font/Pixeboy-z8XGD.ttf" type="DynamicFontData" id=23]
+[ext_resource path="res://RecapWindow.gd" type="Script" id=24]
 
 [sub_resource type="DynamicFontData" id=1]
 
-[sub_resource type="DynamicFontData" id=2]
-
-[sub_resource type="DynamicFont" id=3]
-size = 18
-font_data = SubResource( 2 )
+[sub_resource type="DynamicFont" id=2]
+size = 24
+outline_color = Color( 0.988235, 0.988235, 0.988235, 1 )
+font_data = ExtResource( 23 )
 fallback/0 = SubResource( 1 )
-
-[sub_resource type="DynamicFont" id=4]
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource( 2 )
@@ -152,6 +151,7 @@ texture = ExtResource( 6 )
 
 [node name="RecapWindow" type="Node2D" parent="."]
 position = Vector2( 5.23581, -8.5677 )
+script = ExtResource( 24 )
 
 [node name="Window" type="Sprite" parent="RecapWindow"]
 position = Vector2( 83.5122, 128.786 )
@@ -175,22 +175,42 @@ texture = ExtResource( 17 )
 
 [node name="VSGreenResult" type="Label" parent="RecapWindow"]
 margin_left = 61.0
-margin_top = 72.0
+margin_top = 72.779
 margin_right = 84.0
-margin_bottom = 91.0
-custom_fonts/font = SubResource( 3 )
-text = "+2"
+margin_bottom = 91.779
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "-1"
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="RichTextLabel" type="RichTextLabel" parent="RecapWindow"]
-margin_left = 62.0
-margin_top = 122.0
+[node name="VSBlueResult" type="Label" parent="RecapWindow"]
+margin_left = 61.0
+margin_top = 123.19
 margin_right = 84.0
-margin_bottom = 142.0
-custom_fonts/mono_font = SubResource( 4 )
-text = "+3"
+margin_bottom = 142.19
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "-1"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VSPurpleResult" type="Label" parent="RecapWindow"]
+margin_left = 61.0
+margin_top = 171.46
+margin_right = 84.0
+margin_bottom = 190.46
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "-1"
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }

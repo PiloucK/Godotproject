@@ -8,11 +8,13 @@ func _ready():
 	$RecapWindow/VesrusWindowSpriteGreen.sprite_on_window()
 	$RecapWindow/VesrusWindowSpriteBlue.sprite_on_window()
 	$RecapWindow/VesrusWindowSpritePurple.sprite_on_window()
-	voting_timer.set_wait_time(15)
+	voting_timer.set_wait_time(5)
 	voting_timer.start()
 
 func _on_VotingTimer_timeout():
 	NeededValues.round_count += 1
+	print("ROUND!!!!!!:")
+	print(NeededValues.round_count)
 	var i = 0
 	var j = 0
 	$YSort/BlueBot.do_bot_trades(1)
@@ -33,6 +35,7 @@ func _on_VotingTimer_timeout():
 	$RecapWindow/VesrusWindowSpriteGreen.sprite_on_window()
 	$RecapWindow/VesrusWindowSpriteBlue.sprite_on_window()
 	$RecapWindow/VesrusWindowSpritePurple.sprite_on_window()
+	$RecapWindow.update_window_results()
 	reset_matrix()
 	
 	
@@ -41,7 +44,6 @@ func move_players():
 	$YSort/Player.position = $RedSpawn.position
 	$YSort/GreenBot.position = $GreenSpawn.position
 	$YSort/PurpleBot.position = $PurpleSpawn.position
-	
 	
 func reset_matrix():
 	var i = 0

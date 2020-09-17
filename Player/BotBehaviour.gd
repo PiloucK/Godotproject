@@ -35,13 +35,12 @@ func move_state(delta):
 	var input_vector = Vector2.ZERO
 	
 	if move_lock == 0:
-#		move_lock = randi() % 5 + 1
+		move_lock = randi() % 5 + 1
 		if move_lock < 2:
 			move_lock = 1
 		if x_lock < 0:
 			input_vector.x = randi() % 2 - randi() % 2
-			x_lock = randi() % 20 + 1
-			if input_vector.x 
+			x_lock = randi() % 20 + 1 
 			last_x = input_vector.x
 		else:
 			input_vector.x = last_x
