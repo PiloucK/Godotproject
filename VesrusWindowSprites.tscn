@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Sprites/collab_sign.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/cheating_sign.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/no_trade_sign.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/got_cheated_sign.png" type="Texture" id=4]
+[ext_resource path="res://VesrusSprites.gd" type="Script" id=5]
+
+[node name="VesrusSprites" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="Collaborate" type="Sprite" parent="."]
+position = Vector2( 114.794, 82.893 )
+scale = Vector2( 1.2663, 1.24307 )
+texture = ExtResource( 1 )
+
+[node name="YouCheat" type="Sprite" parent="."]
+position = Vector2( 114.794, 82.893 )
+scale = Vector2( 1.2663, 1.24307 )
+texture = ExtResource( 2 )
+
+[node name="TheyCheat" type="Sprite" parent="."]
+position = Vector2( 114.794, 82.893 )
+scale = Vector2( 1.2663, 1.24307 )
+texture = ExtResource( 4 )
+
+[node name="BothCheat" type="Sprite" parent="."]
+position = Vector2( 114.794, 82.893 )
+scale = Vector2( 1.2663, 1.24307 )
+texture = ExtResource( 3 )

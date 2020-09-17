@@ -5,10 +5,14 @@ onready var round_results = get_node("/root/NeededValues").round_results
 onready var total_score = get_node("/root/NeededValues").total_score
 
 func _ready():
+	$RecapWindow/VesrusWindowSpriteGreen.sprite_on_window()
+	$RecapWindow/VesrusWindowSpriteBlue.sprite_on_window()
+	$RecapWindow/VesrusWindowSpritePurple.sprite_on_window()
 	voting_timer.set_wait_time(15)
 	voting_timer.start()
 
 func _on_VotingTimer_timeout():
+	NeededValues.round_count += 1
 	var i = 0
 	var j = 0
 	$YSort/BlueBot.do_bot_trades(1)
@@ -26,6 +30,9 @@ func _on_VotingTimer_timeout():
 			print(round_results[i][j])
 			j += 1
 		i += 1
+	$RecapWindow/VesrusWindowSpriteGreen.sprite_on_window()
+	$RecapWindow/VesrusWindowSpriteBlue.sprite_on_window()
+	$RecapWindow/VesrusWindowSpritePurple.sprite_on_window()
 	reset_matrix()
 	
 	

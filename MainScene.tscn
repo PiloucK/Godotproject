@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://CanvasLayer.gd" type="Script" id=1]
 [ext_resource path="res://MainScene.gd" type="Script" id=2]
@@ -13,14 +13,26 @@
 [ext_resource path="res://Player/PurpleBot.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Sprites/collab_sign.png" type="Texture" id=12]
 [ext_resource path="res://Sprites/cheating_sign.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/green_pp.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/blue_pp.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Recap_panel.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/purple_pp.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/no_trade_sign.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/got_cheated_sign.png" type="Texture" id=19]
+[ext_resource path="res://VesrusSprites.gd" type="Script" id=20]
+[ext_resource path="res://VesrusWindowSpriteBlue.gd" type="Script" id=21]
+[ext_resource path="res://VesrusWindowSpritePurple.gd" type="Script" id=22]
 
-[sub_resource type="SegmentShape2D" id=1]
-a = Vector2( 188.627, -142.703 )
-b = Vector2( -60.0622, 106.269 )
+[sub_resource type="DynamicFontData" id=1]
 
-[sub_resource type="SegmentShape2D" id=2]
-a = Vector2( -60.4158, -142.986 )
-b = Vector2( 188.839, 106.905 )
+[sub_resource type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=3]
+size = 18
+font_data = SubResource( 2 )
+fallback/0 = SubResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource( 2 )
@@ -82,15 +94,12 @@ show_behind_parent = true
 position = Vector2( 64.7003, -37.8302 )
 texture = ExtResource( 5 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+[node name="CollisionMap" type="CollisionPolygon2D" parent="StaticBody2D"]
 position = Vector2( -60.5668, 107.336 )
-polygon = PoolVector2Array( 247.426, -0.784515, 297.277, -125.235, 246.366, -247.918, 124.672, -297.204, 2.48442, -248.06, -48.0737, -126.791, 2.13087, -1.20869, 124.814, 47.5817, 282.074, -15.6338, 148.785, 87.1089, -29.4061, 15.1962, -88.3788, -170.985, -8.82932, -315.942, 124.39, -350.307, 259.235, -298.689, 315.096, -157.196, 275.357, -20.23 )
+polygon = PoolVector2Array( 245.999, -2.23465, 297.277, -125.235, 246.977, -246.679, 125.056, -295.633, 2.73325, -245.099, -46.5967, -126.763, 3.034, -6.32034, 125.005, 44.8394, 278.585, -19.6555, 148.785, 87.1089, -29.4061, 15.1962, -88.3788, -170.985, -8.82932, -315.942, 124.39, -350.307, 259.235, -298.689, 315.096, -157.196, 275.357, -20.23 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource( 1 )
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource( 2 )
+[node name="CollisionGlass" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PoolVector2Array( -61.2425, -139.443, -60.5224, -156.543, 64.5527, -32.8251, 189.945, -156.995, 188.587, -136.414, 74.6854, -23.2805, 191.528, 93.6976, 183.928, 104.645, 64.2815, -13.1929, -56.9312, 108.059, -61.4722, 94.6928, 55.5401, -22.8607 )
 
 [node name="YSort" type="YSort" parent="."]
 
@@ -140,4 +149,128 @@ visible = false
 position = Vector2( 382.348, 117.368 )
 scale = Vector2( 0.103262, 0.109721 )
 texture = ExtResource( 6 )
+
+[node name="RecapWindow" type="Node2D" parent="."]
+position = Vector2( 5.23581, -8.5677 )
+
+[node name="Window" type="Sprite" parent="RecapWindow"]
+position = Vector2( 83.5122, 128.786 )
+scale = Vector2( 1.55063, 1.64975 )
+texture = ExtResource( 16 )
+
+[node name="GreenHead" type="Sprite" parent="RecapWindow"]
+position = Vector2( 36, 82.6 )
+scale = Vector2( 1.5, 1.6 )
+texture = ExtResource( 14 )
+
+[node name="BlueHead" type="Sprite" parent="RecapWindow"]
+position = Vector2( 36, 132 )
+scale = Vector2( 1.5, 1.6 )
+texture = ExtResource( 15 )
+
+[node name="PurpleHead" type="Sprite" parent="RecapWindow"]
+position = Vector2( 36, 182 )
+scale = Vector2( 1.5, 1.6 )
+texture = ExtResource( 17 )
+
+[node name="VSGreenResult" type="Label" parent="RecapWindow"]
+margin_left = 61.0
+margin_top = 72.0
+margin_right = 84.0
+margin_bottom = 91.0
+custom_fonts/font = SubResource( 3 )
+text = "+2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="RecapWindow"]
+margin_left = 62.0
+margin_top = 122.0
+margin_right = 84.0
+margin_bottom = 142.0
+custom_fonts/mono_font = SubResource( 4 )
+text = "+3"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VesrusWindowSpriteGreen" type="Node2D" parent="RecapWindow"]
+script = ExtResource( 20 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Collaborate" type="Sprite" parent="RecapWindow/VesrusWindowSpriteGreen"]
+position = Vector2( 114.794, 82.893 )
+scale = Vector2( 1.2663, 1.24307 )
+texture = ExtResource( 12 )
+
+[node name="YouCheat" type="Sprite" parent="RecapWindow/VesrusWindowSpriteGreen"]
+position = Vector2( 114.794, 82.893 )
+scale = Vector2( 1.2663, 1.24307 )
+texture = ExtResource( 13 )
+
+[node name="TheyCheat" type="Sprite" parent="RecapWindow/VesrusWindowSpriteGreen"]
+position = Vector2( 114.794, 82.893 )
+scale = Vector2( 1.2663, 1.24307 )
+texture = ExtResource( 19 )
+
+[node name="BothCheat" type="Sprite" parent="RecapWindow/VesrusWindowSpriteGreen"]
+position = Vector2( 114.794, 82.893 )
+scale = Vector2( 1.2663, 1.24307 )
+texture = ExtResource( 18 )
+
+[node name="VesrusWindowSpriteBlue" type="Node2D" parent="RecapWindow"]
+script = ExtResource( 21 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Collaborate" type="Sprite" parent="RecapWindow/VesrusWindowSpriteBlue"]
+position = Vector2( 114.794, 131.893 )
+scale = Vector2( 1.2663, 1.24307 )
+texture = ExtResource( 12 )
+
+[node name="YouCheat" type="Sprite" parent="RecapWindow/VesrusWindowSpriteBlue"]
+position = Vector2( 114.794, 131.893 )
+scale = Vector2( 1.2663, 1.24307 )
+texture = ExtResource( 13 )
+
+[node name="TheyCheat" type="Sprite" parent="RecapWindow/VesrusWindowSpriteBlue"]
+position = Vector2( 114.794, 131.893 )
+scale = Vector2( 1.2663, 1.24307 )
+texture = ExtResource( 19 )
+
+[node name="BothCheat" type="Sprite" parent="RecapWindow/VesrusWindowSpriteBlue"]
+position = Vector2( 114.794, 131.893 )
+scale = Vector2( 1.2663, 1.24307 )
+texture = ExtResource( 18 )
+
+[node name="VesrusWindowSpritePurple" type="Node2D" parent="RecapWindow"]
+position = Vector2( -0.165321, 48.2317 )
+script = ExtResource( 22 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Collaborate" type="Sprite" parent="RecapWindow/VesrusWindowSpritePurple"]
+position = Vector2( 114.794, 131.893 )
+scale = Vector2( 1.2663, 1.24307 )
+texture = ExtResource( 12 )
+
+[node name="YouCheat" type="Sprite" parent="RecapWindow/VesrusWindowSpritePurple"]
+position = Vector2( 114.794, 131.893 )
+scale = Vector2( 1.2663, 1.24307 )
+texture = ExtResource( 13 )
+
+[node name="TheyCheat" type="Sprite" parent="RecapWindow/VesrusWindowSpritePurple"]
+position = Vector2( 114.794, 131.893 )
+scale = Vector2( 1.2663, 1.24307 )
+texture = ExtResource( 19 )
+
+[node name="BothCheat" type="Sprite" parent="RecapWindow/VesrusWindowSpritePurple"]
+position = Vector2( 114.794, 131.893 )
+scale = Vector2( 1.2663, 1.24307 )
+texture = ExtResource( 18 )
 [connection signal="timeout" from="VotingTimer" to="." method="_on_VotingTimer_timeout"]
