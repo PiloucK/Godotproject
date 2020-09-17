@@ -1,13 +1,18 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://CanvasLayer.gd" type="Script" id=1]
 [ext_resource path="res://MainScene.gd" type="Script" id=2]
 [ext_resource path="res://triggers/TriggerBlue.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Player/PlayerRed.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Sprites/map2.png" type="Texture" id=5]
-[ext_resource path="res://triggers/TriggerRed.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Sprites/map_full.png" type="Texture" id=5]
+[ext_resource path="res://icon.png" type="Texture" id=6]
 [ext_resource path="res://triggers/TriggerGreen.tscn" type="PackedScene" id=7]
 [ext_resource path="res://triggers/TriggerPurple.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Player/BlueBot.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Player/GreenBot.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Player/PurpleBot.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Sprites/collab_sign.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/cheating_sign.png" type="Texture" id=13]
 
 [sub_resource type="SegmentShape2D" id=1]
 a = Vector2( 188.627, -142.703 )
@@ -30,20 +35,34 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="UseTrigger" type="TextureButton" parent="CanvasLayer/MapSceneControls"]
-margin_right = 40.0
-margin_bottom = 40.0
+[node name="CollabIcon" type="TextureRect" parent="CanvasLayer/MapSceneControls"]
+visible = false
+margin_left = 708.0
+margin_top = 372.0
+margin_right = 808.0
+margin_bottom = 472.0
+rect_scale = Vector2( -1, -1 )
+rect_pivot_offset = Vector2( -15, -15 )
+texture = ExtResource( 12 )
+expand = true
+flip_h = true
+flip_v = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TriggerIcon" type="TextureRect" parent="CanvasLayer/MapSceneControls/UseTrigger"]
-margin_left = 768.0
-margin_top = 432.0
-margin_right = 868.0
-margin_bottom = 532.0
+[node name="BetrayIcon" type="TextureRect" parent="CanvasLayer/MapSceneControls"]
+visible = false
+margin_left = 738.0
+margin_top = 402.0
+margin_right = 838.0
+margin_bottom = 502.0
 rect_scale = Vector2( -1, -1 )
 rect_pivot_offset = Vector2( -15, -15 )
+texture = ExtResource( 13 )
+expand = true
+flip_h = true
+flip_v = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -53,7 +72,7 @@ __meta__ = {
 [node name="ScoreWindowimer" type="Timer" parent="."]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2( 318.467, 250.469 )
+position = Vector2( 318.07, 250.469 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -75,21 +94,50 @@ shape = SubResource( 2 )
 
 [node name="YSort" type="YSort" parent="."]
 
-[node name="PlayerCollision" parent="YSort" instance=ExtResource( 4 )]
-position = Vector2( 528.194, 225.276 )
+[node name="Player" parent="YSort" instance=ExtResource( 4 )]
+position = Vector2( 490.149, 224.631 )
 collision_layer = 2
 collision_mask = 5
 
-[node name="TriggerRed" parent="YSort" instance=ExtResource( 6 )]
-position = Vector2( 498.227, 235.669 )
-
 [node name="TriggerPurple" parent="YSort" instance=ExtResource( 8 )]
-position = Vector2( 423.52, 231.547 )
+position = Vector2( 423.192, 230.562 )
 
 [node name="TriggerGreen" parent="YSort" instance=ExtResource( 7 )]
-position = Vector2( 478.648, 167.66 )
+position = Vector2( 442.205, 197.208 )
 
 [node name="TriggerBlue" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 479.679, 295.95 )
-[connection signal="pressed" from="CanvasLayer/MapSceneControls/UseTrigger" to="CanvasLayer" method="_on_UseTrigger_pressed"]
+position = Vector2( 446.848, 270.013 )
+
+[node name="GreenBot" parent="YSort" instance=ExtResource( 10 )]
+position = Vector2( 382.232, 117.483 )
+
+[node name="BlueBot" parent="YSort" instance=ExtResource( 9 )]
+position = Vector2( 274.554, 225.807 )
+
+[node name="PurpleBot" parent="YSort" instance=ExtResource( 11 )]
+position = Vector2( 382.095, 334.155 )
+
+[node name="BlueSpawn" type="Sprite" parent="."]
+visible = false
+position = Vector2( 274.662, 225.711 )
+scale = Vector2( 0.103262, 0.109721 )
+texture = ExtResource( 6 )
+
+[node name="PurpleSpawn" type="Sprite" parent="."]
+visible = false
+position = Vector2( 382.348, 333.726 )
+scale = Vector2( 0.103262, 0.109721 )
+texture = ExtResource( 6 )
+
+[node name="RedSpawn" type="Sprite" parent="."]
+visible = false
+position = Vector2( 490.363, 224.727 )
+scale = Vector2( 0.103262, 0.109721 )
+texture = ExtResource( 6 )
+
+[node name="GreenSpawn" type="Sprite" parent="."]
+visible = false
+position = Vector2( 382.348, 117.368 )
+scale = Vector2( 0.103262, 0.109721 )
+texture = ExtResource( 6 )
 [connection signal="timeout" from="VotingTimer" to="." method="_on_VotingTimer_timeout"]
