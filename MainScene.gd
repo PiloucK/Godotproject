@@ -1,30 +1,40 @@
 extends Node2D
 
-var round_results = [[0,-1,0,2], [-1,0,1,1], [-1,-1,0,-1],[1,1,1,0]]
-var total_score = [0, 0, 0, 0]
-
 onready var voting_timer = $VotingTimer
-
+onready var round_results = get_node("/root/NeededValues").round_results
+onready var total_score = get_node("/root/NeededValues").total_score
 
 func _ready():
 	voting_timer.set_wait_time(5)
 	voting_timer.start()
-
-
 
 func _on_VotingTimer_timeout():
 	var i = 0
 	var j = 0
 	print("timeout for voting settings")
 	compute_round_results()
+	compute_total_score()
 	while i < 4:
 		j = 0
+		print("Total score:")
 		print(total_score[i])
+		print("Round player score:")
 		while j < 4:
 			print(round_results[i][j])
 			j += 1
 		i += 1
+	reset_matrix()
 	
+func reset_matrix():
+	var i = 0
+	var j = 0
+	while i < 4:
+		j = 0
+		while j < 4:
+			round_results[i][j] = -1
+			j += 1
+		i += 1
+		
 func compute_round_results():
 	var i = 0
 	var j = 0
@@ -40,10 +50,10 @@ func compute_round_results():
 				round_results[j][i] = 3
 			elif (round_results[i][j] == 1) && (round_results[j][i] == 1): #Cooperation
 				round_results[i][j] = 2
-				round_results[i][j] = 2
+				round_results[j][i] = 2
 			elif (round_results[i][j] == -1) && (round_results[j][i] == -1): #Both cheat
 				round_results[i][j] = 0
-				round_results[i][j] = 0
+				round_results[j][i] = 0
 			j += 1
 		i += 1
 

@@ -1,5 +1,8 @@
 extends Node
 
+var round_results = [[-1,-1,-1,-1], [-1,-1,-1,-1], [-1,-1,-1,-1],[-1,-1,-1,-1]]
+var total_score = [0, 0, 0, 0]
+
 var per_turn_income = 2
 
 var red_treasure = 10

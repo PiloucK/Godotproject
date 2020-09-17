@@ -31,5 +31,3 @@ func move_state(delta):
 # but still slows it down a bit somtimes, that s why
 # we set velocity here (which is returned by the function)
 	velocity = move_and_slide(velocity)
-	
-	#if Input.is_action_just_pressed("")
