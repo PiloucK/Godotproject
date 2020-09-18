@@ -8,8 +8,9 @@ func _ready():
 	$RecapWindow/VesrusWindowSpriteGreen.sprite_on_window()
 	$RecapWindow/VesrusWindowSpriteBlue.sprite_on_window()
 	$RecapWindow/VesrusWindowSpritePurple.sprite_on_window()
-	voting_timer.set_wait_time(5)
+	voting_timer.set_wait_time(15)
 	voting_timer.start()
+	$PlayerScoreWindow/CurrentScore.text = str(total_score[0])
 
 func _on_VotingTimer_timeout():
 	NeededValues.round_count += 1
@@ -36,6 +37,7 @@ func _on_VotingTimer_timeout():
 	$RecapWindow/VesrusWindowSpriteBlue.sprite_on_window()
 	$RecapWindow/VesrusWindowSpritePurple.sprite_on_window()
 	$RecapWindow.update_window_results()
+	$PlayerScoreWindow/CurrentScore.text = str(total_score[0])
 	reset_matrix()
 	
 	

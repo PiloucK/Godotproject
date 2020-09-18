@@ -5,5 +5,8 @@
 
 [node name="MachineTrigger" instance=ExtResource( 1 )]
 
+[node name="Label" parent="." index="1"]
+text = ""
+
 [node name="blue_pp" type="Sprite" parent="." index="2"]
 texture = ExtResource( 2 )
