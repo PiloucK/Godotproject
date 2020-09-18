@@ -38,6 +38,7 @@ func _on_TradeTrigger_out_use_range():
 
 func _input(event):
 	if event.is_action_pressed("cooperate"):
+		$MapSceneControls/AudioStreamPlayer2D.play()
 		if to_trade.ends_with("Green"):
 			if NeededValues.round_results[0][1] == 0:
 				NeededValues.round_results[0][1] = 1

@@ -11,6 +11,7 @@ func _ready():
 	voting_timer.set_wait_time(15)
 	voting_timer.start()
 	$PlayerScoreWindow/CurrentScore.text = str(total_score[0])
+	$RoundWindow.show_round_sign()
 
 func _on_VotingTimer_timeout():
 	NeededValues.round_count += 1
@@ -38,6 +39,7 @@ func _on_VotingTimer_timeout():
 	$RecapWindow/VesrusWindowSpritePurple.sprite_on_window()
 	$RecapWindow.update_window_results()
 	$PlayerScoreWindow/CurrentScore.text = str(total_score[0])
+	$RoundWindow.show_round_sign()
 	reset_matrix()
 	
 	

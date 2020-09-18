@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/2017-02-27_-_Moron_-_David_Fesliyan.wav-2908918623d31f0664b9c51ab2f7bf34.sample"
+
+[deps]
+
+source_file="res://Sounds/2017-02-27_-_Moron_-_David_Fesliyan.wav"
+dest_files=[ "res://.import/2017-02-27_-_Moron_-_David_Fesliyan.wav-2908918623d31f0664b9c51ab2f7bf34.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

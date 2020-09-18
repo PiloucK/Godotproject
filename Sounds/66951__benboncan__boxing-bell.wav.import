@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/66951__benboncan__boxing-bell.wav-200c5028249c35eaf628c0c404872329.sample"
+
+[deps]
+
+source_file="res://Sounds/66951__benboncan__boxing-bell.wav"
+dest_files=[ "res://.import/66951__benboncan__boxing-bell.wav-200c5028249c35eaf628c0c404872329.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
