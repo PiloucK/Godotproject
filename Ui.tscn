@@ -1,17 +1,25 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Ui.gd" type="Script" id=1]
+[ext_resource path="res://pixeboy-font/Pixeboy-z8XGD.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://coin-4180241_1920.jpg" type="Texture" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+font_data = ExtResource( 2 )
 
 [node name="Ui" type="Node"]
+pause_mode = 2
 script = ExtResource( 1 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Play" type="Button" parent="CanvasLayer"]
-margin_left = 155.028
-margin_top = 153.659
-margin_right = 622.028
-margin_bottom = 286.659
+margin_left = 196.748
+margin_top = 163.771
+margin_right = 563.748
+margin_bottom = 269.771
+custom_fonts/font = SubResource( 1 )
 text = "Play"
 expand_icon = true
 __meta__ = {
@@ -19,11 +27,24 @@ __meta__ = {
 }
 
 [node name="PlayAgain" type="Button" parent="CanvasLayer"]
-margin_right = 165.0
-margin_bottom = 40.0
+visible = false
+margin_left = 196.748
+margin_top = 163.771
+margin_right = 563.748
+margin_bottom = 269.771
+custom_fonts/font = SubResource( 1 )
 text = "Play again"
+expand_icon = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="CanvasLayer"]
+
+[node name="Sprite" type="Sprite" parent="CanvasLayer/ParallaxBackground"]
+modulate = Color( 0.352941, 0.352941, 0.352941, 0.47451 )
+position = Vector2( 384.275, 214.274 )
+scale = Vector2( 0.400257, 0.398785 )
+texture = ExtResource( 3 )
 [connection signal="pressed" from="CanvasLayer/Play" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="CanvasLayer/PlayAgain" to="." method="_on_PlayAgain_pressed"]
