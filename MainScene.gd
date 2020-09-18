@@ -8,7 +8,7 @@ func _ready():
 	$RecapWindow/VesrusWindowSpriteGreen.sprite_on_window()
 	$RecapWindow/VesrusWindowSpriteBlue.sprite_on_window()
 	$RecapWindow/VesrusWindowSpritePurple.sprite_on_window()
-	voting_timer.set_wait_time(20)
+	voting_timer.set_wait_time(15)
 	voting_timer.start()
 	$PlayerScoreWindow/CurrentScore.text = str(total_score[0])
 	$RoundWindow.show_round_sign()
@@ -32,6 +32,12 @@ func _on_VotingTimer_timeout():
 	$RecapWindow/VesrusWindowSpritePurple.sprite_on_window()
 	$RecapWindow.update_window_results()
 	$PlayerScoreWindow/CurrentScore.text = str(total_score[0])
+	if (NeededValues.round_count % 3) == 0:
+		if NeededValues.round_count != 0:
+			$TotalScoreWindow.show()
+			$TotalScoreWindow.show_total_score_window()
+	else:
+		$TotalScoreWindow.hide()
 	if NeededValues.round_count == 12:
 		get_parent().get_node("CanvasLayer/PlayAgain").show()
 		get_tree().set_pause(true)

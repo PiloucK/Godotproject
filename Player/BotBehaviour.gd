@@ -21,11 +21,12 @@ func do_bot_trades(id):
 	var i = id
 	var j = 0
 	while j < 4:
-		rand = randi() % 3
-		if rand > 1:
-			round_results[i][j] = 1
-		else:
-			round_results[i][j] = 0
+		rand = randi() % 2
+		round_results[i][j] = rand
+#		if rand > 1:
+#			round_results[i][j] = 1
+#		else:
+#			round_results[i][j] = 0
 		j += 1
 
 

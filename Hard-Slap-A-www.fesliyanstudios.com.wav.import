@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Hard-Slap-A-www.fesliyanstudios.com.wav-472ea962dee69fd7d22831086beb4407.sample"
+
+[deps]
+
+source_file="res://Hard-Slap-A-www.fesliyanstudios.com.wav"
+dest_files=[ "res://.import/Hard-Slap-A-www.fesliyanstudios.com.wav-472ea962dee69fd7d22831086beb4407.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
