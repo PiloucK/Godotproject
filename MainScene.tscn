@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://CanvasLayer.gd" type="Script" id=1]
 [ext_resource path="res://MainScene.gd" type="Script" id=2]
@@ -33,21 +33,22 @@
 [ext_resource path="res://Sprites/round_start.png" type="Texture" id=31]
 [ext_resource path="res://Sounds/Ride-Cymbal-Bell-Hit-A-www.fesliyanstudios.com.wav" type="AudioStream" id=32]
 [ext_resource path="res://RoundWindow.gd" type="Script" id=33]
+[ext_resource path="res://TotalScoreWindow.tscn" type="PackedScene" id=34]
 
-[sub_resource type="CapsuleShape2D" id=3]
+[sub_resource type="CapsuleShape2D" id=1]
 radius = 12.1263
 height = 12.419
 
-[sub_resource type="CircleShape2D" id=4]
+[sub_resource type="CircleShape2D" id=2]
 radius = 23.5977
 
-[sub_resource type="DynamicFontData" id=1]
+[sub_resource type="DynamicFontData" id=3]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=4]
 size = 24
 outline_color = Color( 0.988235, 0.988235, 0.988235, 1 )
 font_data = ExtResource( 23 )
-fallback/0 = SubResource( 1 )
+fallback/0 = SubResource( 3 )
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource( 2 )
@@ -119,26 +120,26 @@ polygon = PoolVector2Array( -61.2425, -139.443, -60.5224, -156.543, 64.5527, -32
 [node name="TopLeft" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( -0.128021, -87.801 )
 rotation = 2.35619
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 
 [node name="BottomRight" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 127.863, 41.295 )
 rotation = 2.35619
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 
 [node name="TopRight" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 131.252, -89.397 )
 rotation = 0.698132
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 
 [node name="BottomLeft" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 1.54898, 40.306 )
 rotation = 0.698132
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 64.714, -17.9932 )
-shape = SubResource( 4 )
+shape = SubResource( 2 )
 
 [node name="YSort" type="YSort" parent="."]
 
@@ -221,7 +222,7 @@ margin_left = 61.0
 margin_top = 72.779
 margin_right = 84.0
 margin_bottom = 91.779
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "0"
 align = 1
@@ -235,7 +236,7 @@ margin_left = 61.0
 margin_top = 123.19
 margin_right = 84.0
 margin_bottom = 142.19
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "0"
 align = 1
@@ -249,7 +250,7 @@ margin_left = 61.0
 margin_top = 171.46
 margin_right = 84.0
 margin_bottom = 190.46
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "0"
 align = 1
@@ -349,7 +350,7 @@ margin_left = 61.7637
 margin_top = 276.0
 margin_right = 105.764
 margin_bottom = 295.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0.956863, 0.835294, 0.25098, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 align = 1
@@ -384,5 +385,7 @@ volume_db = -18.0
 stream = ExtResource( 29 )
 volume_db = -15.0
 autoplay = true
+
+[node name="TotalScoreWindow" parent="." instance=ExtResource( 34 )]
 [connection signal="timeout" from="VotingTimer" to="." method="_on_VotingTimer_timeout"]
 [connection signal="timeout" from="RoundWindow/Timer" to="RoundWindow" method="_on_Timer_timeout"]
