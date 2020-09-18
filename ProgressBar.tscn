@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Sprites/timer_full.png" type="Texture" id=1]
+[ext_resource path="res://TimeBar.gd" type="Script" id=2]
+[ext_resource path="res://Sprites/timer_bar.png" type="Texture" id=3]
+
+[node name="Node" type="Node"]
+
+[node name="TextureProgress" type="TextureProgress" parent="."]
+anchor_left = -0.000175575
+anchor_top = 0.00156074
+anchor_right = -0.000175575
+anchor_bottom = 0.00156074
+margin_top = -0.269695
+margin_right = 178.0
+margin_bottom = 7.7303
+min_value = 3.5
+max_value = 100.0
+step = 1.0
+value = 97.0
+texture_under = ExtResource( 3 )
+texture_progress = ExtResource( 1 )
+tint_under = Color( 0.996078, 0.992157, 0.992157, 1 )
+nine_patch_stretch = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

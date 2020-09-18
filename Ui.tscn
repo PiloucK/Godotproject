@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Ui.gd" type="Script" id=1]
+
+[node name="Ui" type="Node"]
+script = ExtResource( 1 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Play" type="Button" parent="CanvasLayer"]
+margin_left = 155.028
+margin_top = 153.659
+margin_right = 622.028
+margin_bottom = 286.659
+text = "Play"
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayAgain" type="Button" parent="CanvasLayer"]
+margin_right = 165.0
+margin_bottom = 40.0
+text = "Play again"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="CanvasLayer/Play" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="CanvasLayer/PlayAgain" to="." method="_on_PlayAgain_pressed"]

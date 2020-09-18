@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Sprites/timer_full.png" type="Texture" id=1]
+[ext_resource path="res://TimeBar.gd" type="Script" id=2]
+[ext_resource path="res://Sprites/timer_bar.png" type="Texture" id=3]
+[ext_resource path="res://pixeboy-font/Pixeboy-z8XGD.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 24
+font_data = ExtResource( 4 )
+
+[node name="TimeBar" type="TextureProgress"]
+anchor_top = 0.000312143
+anchor_bottom = 0.000312143
+margin_left = 1.98141
+margin_top = 4.62494
+margin_right = 157.981
+margin_bottom = 27.6249
+max_value = 2000.0
+value = 2000.0
+texture_under = ExtResource( 3 )
+texture_progress = ExtResource( 1 )
+nine_patch_stretch = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_left = -0.00576254
+anchor_right = 0.0968016
+margin_left = 3.75134
+margin_top = -66.2614
+margin_right = 200.751
+margin_bottom = 31.7386
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 0.933333, 0.345098, 1 )
+custom_colors/font_color_shadow = Color( 0.517647, 0.462745, 0.462745, 1 )
+text = "dk tgikhn"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
